@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Mailbox Economy: The Pervasive Problem of Junk Mail in the United States</title>
+<meta name="description" content="What if junk mail were the entire U.S. economy? An interactive look at who sends America's advertising mail, what it really costs, and how to stop it.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F1EEE3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#17150F" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Mailbox Economy">
+<meta property="og:description" content="What if junk mail were the entire U.S. economy? An interactive look at who sends America's advertising mail, what it really costs, and how to stop it.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='7' width='26' height='18' rx='2' fill='%23FBF9F2' stroke='%231C1A14' stroke-width='2'/%3E%3Cpath d='M3 8l13 10 13-10' fill='none' stroke='%231C1A14' stroke-width='2'/%3E%3Crect x='21' y='10' width='5' height='4' fill='%23B7362A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script defer src="vendor/matter.min.js"></script>
+<script defer src="js/article.js"></script>
+<script defer src="js/hero.js"></script>
+<script defer src="js/treemap.js"></script>
+<script defer src="js/mailstream.js"></script>
+<script defer src="js/laser.js"></script>
+</head>
+<body>
+
+<section class="mb-hero" id="hero" aria-label="Junk mail">
+    <div class="stage" id="stage">
+
+      <svg class="mb-scene" viewBox="-400 0 2000 900" preserveAspectRatio="xMidYMax meet">
+        <defs>
+          <pattern id="mow" width="170" height="20" patternUnits="userSpaceOnUse" patternTransform="skewX(-38)">
+            <rect width="85" height="20" fill="var(--lawn-2)"/>
+          </pattern>
+          <pattern id="pickets" x="0" y="598" width="30" height="66" patternUnits="userSpaceOnUse">
+            <path d="M7 65 V11 L15 1 L23 11 V65 Z" fill="var(--paper-contrast)" stroke="var(--ink)" stroke-width="2"/>
+          </pattern>
+        </defs>
+
+        <g aria-hidden="true">
+          <rect x="-400" width="2000" height="900" fill="var(--sky)"/>
+          <circle class="sky-sun" cx="1350" cy="235" r="58" fill="var(--sun)"/>
+          <g fill="var(--cloud)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round">
+            <path class="cloud-mid" transform="translate(-700 10)" d="M430 260 H540 A20 20 0 0 0 532 222 A28 28 0 0 0 480 212 A24 24 0 0 0 440 232 A16 16 0 0 0 430 260 Z"/>
+            <path class="cloud-right" transform="translate(1030 -90)" d="M430 260 H540 A20 20 0 0 0 532 222 A28 28 0 0 0 480 212 A24 24 0 0 0 440 232 A16 16 0 0 0 430 260 Z"/>
+            <path class="cloud-left" transform="translate(-800 -70)" d="M430 260 H540 A20 20 0 0 0 532 222 A28 28 0 0 0 480 212 A24 24 0 0 0 440 232 A16 16 0 0 0 430 260 Z"/>
+          </g>
+
+          <path d="M-400 520 C-220 485 -80 500 90 525 C240 548 390 500 560 522 S900 468 1200 510 C1360 536 1500 500 1600 486 V900 H-400 Z" fill="var(--hill)" stroke="var(--ink)" stroke-width="2.5"/>
+          <g stroke="var(--ink)" stroke-width="2">
+            <line x1="180" y1="530" x2="180" y2="505"/><circle cx="180" cy="492" r="20" fill="var(--leaf)"/>
+            <line x1="1045" y1="505" x2="1045" y2="480"/><circle cx="1045" cy="467" r="22" fill="var(--leaf)"/>
+            <line x1="1100" y1="508" x2="1100" y2="490"/><circle cx="1100" cy="480" r="15" fill="var(--leaf-2)"/>
+          </g>
+
+          <!-- house -->
+          <g stroke="var(--ink)" stroke-width="3" stroke-linejoin="round">
+            <rect x="828" y="336" width="30" height="62" fill="var(--roof)"/>
+            <rect x="630" y="420" width="250" height="187" fill="var(--house)"/>
+            <polygon points="603,426 755,318 907,426" fill="var(--roof)"/>
+            <circle cx="755" cy="386" r="14" fill="var(--window)"/>
+            <rect x="656" y="455" width="56" height="52" fill="var(--window)"/>
+            <path d="M684 455 V507 M656 481 H712" fill="none" stroke-width="2"/>
+            <rect x="798" y="455" width="56" height="52" fill="var(--window)"/>
+            <path d="M826 455 V507 M798 481 H854" fill="none" stroke-width="2"/>
+            <rect x="735" y="512" width="44" height="95" fill="var(--red)"/>
+            <circle cx="770" cy="562" r="3" fill="var(--ink)" stroke="none"/>
+          </g>
+
+          <!-- tree -->
+          <g stroke="var(--ink)" stroke-width="3" stroke-linejoin="round">
+            <path d="M440 628 L444 470 L456 470 L462 628 Z" fill="var(--roof)"/>
+            <circle cx="450" cy="420" r="96" fill="var(--leaf)"/>
+            <path d="M478 360 A60 60 0 0 1 505 470 A70 70 0 0 1 430 492" fill="none" stroke-width="2" opacity=".55"/>
+          </g>
+
+          <!-- lawn -->
+          <rect x="-400" y="600" width="2000" height="300" fill="var(--lawn)"/>
+          <rect x="-400" y="600" width="2000" height="300" fill="url(#mow)"/>
+          <line x1="-400" y1="600" x2="1600" y2="600" stroke="var(--ink)" stroke-width="2.5"/>
+
+          <!-- walk and sidewalk -->
+          <path d="M737 607 L777 607 L842 832 L714 832 Z" fill="var(--walk)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect x="-410" y="832" width="2020" height="80" fill="var(--walk)" stroke="var(--ink)" stroke-width="2.5"/>
+          <path d="M-360 832 V900 M-180 832 V900 M0 832 V900 M180 832 V900 M360 832 V900 M540 832 V900 M720 832 V900 M900 832 V900 M1080 832 V900 M1260 832 V900 M1440 832 V900" stroke="var(--ink)" stroke-width="1.5" opacity=".45"/>
+
+          <!-- fence -->
+          <rect x="-410" y="620" width="1155" height="8" fill="var(--paper-contrast)" stroke="var(--ink)" stroke-width="2"/>
+          <rect x="-410" y="646" width="1155" height="8" fill="var(--paper-contrast)" stroke="var(--ink)" stroke-width="2"/>
+          <rect x="805" y="620" width="805" height="8" fill="var(--paper-contrast)" stroke="var(--ink)" stroke-width="2"/>
+          <rect x="805" y="646" width="805" height="8" fill="var(--paper-contrast)" stroke="var(--ink)" stroke-width="2"/>
+          <rect x="-400" y="598" width="1138" height="66" fill="url(#pickets)"/>
+          <rect x="810" y="598" width="790" height="66" fill="url(#pickets)"/>
+
+          <!-- bushes -->
+          <g stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round">
+            <path d="M880 690 C872 650 915 640 930 655 C945 630 990 638 992 668 C1020 662 1030 690 1015 700 H885 Z" fill="var(--leaf)"/>
+            <path d="M1040 700 C1032 668 1070 658 1085 672 C1100 652 1140 662 1140 690 C1160 690 1165 708 1150 712 H1045 Z" fill="var(--leaf-2)"/>
+            <path d="M240 700 C230 665 272 655 288 672 C305 650 348 660 346 690 C366 690 370 708 356 712 H246 Z" fill="var(--leaf-2)"/>
+            <path d="M-300 704 C-312 668 -270 654 -250 672 C-235 646 -190 655 -188 690 C-160 684 -150 710 -168 718 H-294 Z" fill="var(--leaf)"/>
+            <path d="M1320 706 C1312 672 1354 660 1370 676 C1388 650 1430 660 1432 692 C1458 688 1470 712 1450 720 H1325 Z" fill="var(--leaf-2)"/>
+          </g>
+
+          <!-- flower bed -->
+          <ellipse cx="627" cy="838" rx="92" ry="13" fill="var(--roof)" opacity=".85"/>
+          <g stroke="var(--ink)" stroke-width="2" transform="translate(48 0)">
+            <path d="M505 836 V812 M525 834 V806 M622 834 V808 M644 836 V814 M660 836 V818" fill="none"/>
+            <g fill="var(--red)">
+              <path d="M499 812 Q505 796 511 812 Z"/><path d="M519 806 Q525 790 531 806 Z"/>
+              <path d="M616 808 Q622 792 628 808 Z"/><path d="M638 814 Q644 798 650 814 Z"/>
+              <path d="M654 818 Q660 804 666 818 Z"/>
+            </g>
+          </g>
+          <ellipse cx="630" cy="846" rx="62" ry="7" fill="var(--shadow)"/>
+        </g>
+
+        <!-- mailbox (interactive) -->
+        <g class="mailbox" id="mailbox" role="button" tabindex="0" aria-label="Open the mailbox">
+          <rect x="430" y="535" width="300" height="325" fill="transparent"/>
+          <rect class="focus-ring" x="436" y="542" width="288" height="308" rx="10" fill="none" stroke="var(--focus)" stroke-width="3" stroke-dasharray="10 7"/>
+          <circle class="pulse" cx="585" cy="668" r="128" fill="none" stroke="var(--red)" stroke-width="3"/>
+
+          <g class="mailbox-body" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+            <!-- wooden post -->
+            <rect x="609" y="702" width="36" height="144" fill="var(--wood)"/>
+            <path d="M620 722 V836 M634 716 V790 M630 800 V840" fill="none" stroke-width="1.5" opacity=".45"/>
+
+            <!-- long body receding to the right -->
+            <path d="M540 606 L670 592 A40 44 0 0 1 710 636 V701 L580 715 V650 A40 44 0 0 0 540 606 Z" fill="var(--mb-body)"/>
+            <path d="M552 611 L668 598 A33 38 0 0 1 700 624" fill="none" stroke="var(--mb-sheen)" stroke-width="6" opacity=".55"/>
+            <g fill="var(--mb-sheen)" stroke="none" opacity=".8">
+              <circle cx="596" cy="706" r="2"/><circle cx="614" cy="704" r="2"/><circle cx="632" cy="702" r="2"/>
+              <circle cx="650" cy="700" r="2"/><circle cx="668" cy="698" r="2"/><circle cx="686" cy="696" r="2"/>
+            </g>
+
+            <!-- opening -->
+            <path d="M500 715 V650 A40 44 0 0 1 580 650 V715 Z" fill="var(--mb-body)"/>
+            <path d="M507 715 V651 A33 37 0 0 1 573 651 V715 Z" fill="#12110D" stroke-width="2"/>
+
+            <!-- door, dropped open toward the viewer -->
+            <path d="M500 715 L580 715 L565 752 A50 22 0 0 1 470 742 Z" fill="var(--mb-body)"/>
+            <path d="M506 722 L572 722 L561 746 A42 16 0 0 1 482 739 Z" fill="none" stroke="var(--mb-sheen)" stroke-width="2" opacity=".6"/>
+            <path d="M505 757 V770 Q505 777 512 777" fill="none" stroke-width="4"/>
+
+            <!-- crammed mail bulging out (before the tap) -->
+            <g class="stuffed" stroke-width="2.5">
+              <polygon points="470,706 494,710 474,622 452,630" fill="#3B3A33"/>
+              <polygon points="474,690 488,693 474,640 462,644" fill="#C9B79C" stroke-width="1.5"/>
+              <polygon points="490,712 520,714 488,610 462,622" fill="#EAE4D2"/>
+              <polygon points="505,714 562,714 552,600 490,616" fill="#FBF9F2"/>
+              <path d="M510 704 L500 624 M518 706 L509 620 M526 708 L518 616" fill="none" stroke-width="1.2" opacity=".5"/>
+              <polygon points="528,712 556,712 580,594 552,586" fill="#FBF9F2"/>
+              <polygon points="545,714 580,714 586,640 552,634" fill="#FBF9F2"/>
+              <polygon points="552,634 586,640 585,652 551,646" fill="#B7362A" stroke-width="1.5"/>
+              <polygon points="512,650 536,652 530,598 508,596" fill="#DDE2DB" stroke-width="2"/>
+              <g transform="rotate(-9 522 728)"><rect x="494" y="712" width="62" height="32" fill="#FBF9F2"/><rect x="502" y="722" width="26" height="10" fill="#DDE2DB" stroke-width="1.2"/></g>
+            </g>
+
+            <!-- what's left after it bursts -->
+            <g class="leftover" stroke="none">
+              <rect x="512" y="698" width="58" height="6" fill="#FBF9F2" transform="rotate(-6 540 701)"/>
+              <rect x="514" y="706" width="54" height="6" fill="#B7362A" transform="rotate(3 540 709)"/>
+            </g>
+
+            <!-- flag, up -->
+            <g class="flag">
+              <rect x="621" y="560" width="9" height="106" fill="var(--red)" stroke-width="2.5"/>
+              <rect x="621" y="552" width="22" height="40" fill="var(--red)" stroke-width="2.5"/>
+              <circle cx="625" cy="664" r="10" fill="var(--red)" stroke-width="2.5"/>
+              <circle cx="625" cy="664" r="4" fill="none" stroke-width="1.5"/>
+            </g>
+            <circle id="mouth" cx="540" cy="665" r="1" fill="none" stroke="none"/>
+          </g>
+
+          <!-- spillover on the grass -->
+          <g class="stuffed" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round">
+            <g transform="rotate(-14 548 838)"><rect x="518" y="822" width="60" height="36" fill="#FBF9F2"/><path d="M518 822 L548 842 L578 822" fill="none" stroke-width="1.5"/></g>
+            <g transform="rotate(10 700 842)"><rect x="670" y="826" width="62" height="38" fill="#EAE4D2"/><rect x="670" y="826" width="62" height="9" fill="#B7362A"/></g>
+          </g>
+        </g>
+      </svg>
+
+      <canvas id="pile" aria-hidden="true"></canvas>
+      <canvas id="fly" aria-hidden="true"></canvas>
+
+      <header class="copy" id="copy">
+        <p class="mb-title">It's a beautiful day in the neighborhood.</p>
+        <p>Tap the mailbox to check your mail.</p>
+      </header>
+
+      <div class="hint" id="hint" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        Keep scrolling
+      </div>
+
+      <div class="card" id="card" role="status" aria-live="polite">
+        <svg class="cancel" viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <circle cx="30" cy="30" r="24"/>
+          <circle cx="30" cy="30" r="17" stroke-width="1.2"/>
+          <path d="M60 18 q7 -6 14 0 t14 0 t14 0 t14 0 M60 30 q7 -6 14 0 t14 0 t14 0 t14 0 M60 42 q7 -6 14 0 t14 0 t14 0 t14 0"/>
+        </svg>
+        <p class="line opener">Junk mail is a significant and pervasive feature of life in the United States.</p>
+        <div class="actions">
+          <button class="next" id="next" type="button">See the numbers</button>
+          <button class="replay" id="replay" type="button">Check the mail again</button>
+        </div>
+      </div>
+
+      <div class="card followup" id="card2" role="status" aria-live="polite">
+        <svg class="cancel" viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <circle cx="30" cy="30" r="24"/>
+          <circle cx="30" cy="30" r="17" stroke-width="1.2"/>
+          <path d="M60 18 q7 -6 14 0 t14 0 t14 0 t14 0 M60 30 q7 -6 14 0 t14 0 t14 0 t14 0 M60 42 q7 -6 14 0 t14 0 t14 0 t14 0"/>
+        </svg>
+        <p class="big long">Over 108 billion</p>
+        <p class="line">The United States Postal Service delivers over 108 billion pieces of mail annually.</p>
+        <div class="actions">
+          <button class="next" id="next2" type="button">Next stat</button>
+          <button class="replay" id="replay2" type="button">Check the mail again</button>
+        </div>
+      </div>
+
+      <div class="card followup" id="card3" role="status" aria-live="polite">
+        <svg class="cancel" viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <circle cx="30" cy="30" r="24"/>
+          <circle cx="30" cy="30" r="17" stroke-width="1.2"/>
+          <path d="M60 18 q7 -6 14 0 t14 0 t14 0 t14 0 M60 30 q7 -6 14 0 t14 0 t14 0 t14 0 M60 42 q7 -6 14 0 t14 0 t14 0 t14 0"/>
+        </svg>
+        <p class="big">52.3%</p>
+        <p class="line">of that—<strong>56.8 billion pieces</strong>—is considered “Market Dominant,” or junk mail.</p>
+        <div class="actions">
+          <button class="next" id="next3" type="button">Continue</button>
+          <button class="replay" id="replay3" type="button">Check the mail again</button>
+        </div>
+      </div>
+
+      <div class="card followup story-card" id="card4" role="status" aria-live="polite">
+        <svg class="cancel" viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <circle cx="30" cy="30" r="24"/>
+          <circle cx="30" cy="30" r="17" stroke-width="1.2"/>
+          <path d="M60 18 q7 -6 14 0 t14 0 t14 0 t14 0 M60 30 q7 -6 14 0 t14 0 t14 0 t14 0 M60 42 q7 -6 14 0 t14 0 t14 0 t14 0"/>
+        </svg>
+        <p class="big head">First World Problem</p>
+        <p class="line">Junk mail is not uniquely American. High volumes of junk mail are common in the UK, Germany, and Canada, suggesting it is a feature of mass-market consumer economies rather than an American anomaly.</p>
+        <div class="actions">
+          <button class="next" id="next4" type="button">Continue</button>
+          <button class="replay" id="replay4" type="button">Check the mail again</button>
+        </div>
+      </div>
+
+      <div class="card followup story-card" id="card5" role="status" aria-live="polite">
+        <svg class="cancel" viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <circle cx="30" cy="30" r="24"/>
+          <circle cx="30" cy="30" r="17" stroke-width="1.2"/>
+          <path d="M60 18 q7 -6 14 0 t14 0 t14 0 t14 0 M60 30 q7 -6 14 0 t14 0 t14 0 t14 0 M60 42 q7 -6 14 0 t14 0 t14 0 t14 0"/>
+        </svg>
+        <p class="big head">Not just a nuisance: Pollution</p>
+        <p class="line">In the US, billions of pieces of advertising mail create a significant annual waste management challenge.</p>
+        <div class="actions">
+          <button class="next" id="next5" type="button">Continue</button>
+          <button class="replay" id="replay5" type="button">Check the mail again</button>
+        </div>
+      </div>
+
+      <div class="card followup story-card" id="card6" role="status" aria-live="polite">
+        <svg class="cancel" viewBox="0 0 120 60" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <circle cx="30" cy="30" r="24"/>
+          <circle cx="30" cy="30" r="17" stroke-width="1.2"/>
+          <path d="M60 18 q7 -6 14 0 t14 0 t14 0 t14 0 M60 30 q7 -6 14 0 t14 0 t14 0 t14 0 M60 42 q7 -6 14 0 t14 0 t14 0 t14 0"/>
+        </svg>
+        <p class="big head">Some good news</p>
+        <p class="line">Overall mail volume has fallen by nearly half since its 2006 peak of 213 billion pieces. However, marketing mail has held steady at around half of what remains—a testament to its continued value to advertisers, if not to the households that receive it.</p>
+        <div class="actions">
+          <button class="next" id="next6" type="button">Start reading</button>
+          <button class="replay" id="replay6" type="button">Check the mail again</button>
+        </div>
+      </div>
+    </div>
+  </section>
+<main>
+
+  <!-- INTRO: opens the article -->
+  <section class="scene intro" id="intro" tabindex="-1" aria-labelledby="intro-title">
+    <p class="eyebrow">A Maelstrom of Mail</p>
+    <h1 id="intro-title">The Pervasive Problem of Junk Mail in the United States</h1>
+    <p class="lede">Last week, I finally checked my mail after 3 months and found (as expected) a small geological formation of advertising waiting there for me: shopping catalogues, AMEX offers, political ads, solicitations from local businesses.</p>
+    <p class="lede">After discarding 99% of it, a funny thought occurred to me: if junk mail was the GDP of the US, what’s the value of what I just threw away?</p>
+  </section>
+
+  <!-- SCENE 1: hero / junk mail GDP -->
+  <section class="scene hero" id="s1" tabindex="-1">
+    <p class="eyebrow">A thought experiment</p>
+    <h2>What if junk mail were the entire U.S. economy?</h2>
+    <p class="lede">Pretend for a moment that the only thing America produces is junk mail. If we could calculate the dollar value of this output, what’s the value of the mail we throw away every month?</p>
+
+    <div class="pile-stage bleed" id="pileStage" aria-hidden="true">
+      <canvas id="pileCanvas"></canvas>
+      <div class="pile-figure" id="pileFigure">
+        <span class="num tone-red" data-count="62000" data-prefix="$" data-decimals="0">$0</span>
+        <p class="figure-cap">Your household's imaginary 3‑month share, based on getting roughly 212 pieces of junk mail (a quarter of the U.S. average of 848 a year).</p>
+      </div>
+    </div>
+
+    <aside class="math-callout" aria-label="The math">
+      <p class="math-head">The math</p>
+      <ul class="math-list">
+        <li>US households get an average of <strong>~848 pieces</strong> of junk mail per year</li>
+        <li>Total US junk mail volume: <strong>~100 billion pieces</strong> per year</li>
+        <li>Your household&rsquo;s share: <span class="mono">848 &divide; 100,000,000,000 &asymp; 0.00000000848</span> (8.48 billionths) of all junk mail</li>
+      </ul>
+      <p class="math-step">Apply that same tiny fraction to the full <strong>$29.2&nbsp;trillion</strong> &ldquo;GDP&rdquo;:</p>
+      <p class="math-eq"><span class="mono">$29.2T &times; 0.00000000848 &asymp; <strong class="tone-red">$247,600/year</strong></span> &mdash; that&rsquo;s your household&rsquo;s imputed slice of the entire US economy, if junk mail were the only thing America made.</p>
+      <p class="math-step">3 months = &frac14; of that:</p>
+      <p class="math-eq"><span class="mono">&asymp; <strong class="tone-red">$62,000</strong></span> of &ldquo;GDP&rdquo; sitting unclaimed in your mailbox right now.</p>
+      <p class="math-foot">The absurdity here is the point &mdash; actual junk mail is a ~$20&ndash;46B/year industry, but real US GDP is ~1,400&times; bigger than that. So, imagining junk mail as the whole economy: your tiny sliver of that roughly amounts to a mid-size regional bank&rsquo;s worth of economic activity, just sitting there unopened (or immediately being discarded).</p>
+    </aside>
+</section>
+
+  <!-- SCENE 2: spam GDP race -->
+  <section class="scene race" id="s2">
+    <p class="eyebrow">Same trick, different mailbox</p>
+    <h2>Now run the same math on spam.</h2>
+    <p class="lede">This made me think about my spam folder in the same way. A fictional economy that produces nothing but spam emails. The same three months; this time measured per person rather than household. What’s the GDP value of just 3 months of spam?</p>
+    <div class="pile-mini-row">
+      <div class="pile-mini">
+        <div class="pile-mini-stage" id="junkPileStage"><canvas id="junkPileCanvas"></canvas></div>
+        <div class="race-top">
+          <span class="race-name">Junk mail</span>
+          <span class="race-num tone-red" data-count="62000" data-prefix="$" data-decimals="0">$0</span>
+        </div>
+      </div>
+      <div class="pile-mini">
+        <div class="pile-mini-stage" id="spamPileStage"><canvas id="spamPileCanvas"></canvas></div>
+        <div class="race-top">
+          <span class="race-name">Spam</span>
+          <span class="race-num tone-green" data-count="4560" data-prefix="$" data-decimals="0">$0</span>
+        </div>
+      </div>
+    </div>
+    <p class="race-note">You get far more spam than junk mail — but under this logic, each message is worth almost nothing. Volume beats value here, by a lot.</p>
+  </section>
+
+<section class="scene kicker" id="s5">
+    <p class="eyebrow">Worth doing something about</p>
+    <h2>The imaginary economy was a joke. But the machine behind the mail-strom is real.</h2>
+    <p class="lede">There’s an elaborate system behind this phenomenon we tend to take for granted—and a real environmental cost attached to it. This is what it takes to move the paper, ink, trucks, data, and servers that keep the mail-strom churning.</p>
+
+    <div class="pile-stage bleed" id="kickerPileStage" aria-hidden="true">
+      <canvas id="kickerPileCanvas"></canvas>
+    </div>
+    <p class="race-note" id="kickerPileNote">Everything above, in one pile. Keep scrolling and watch it go.</p>
+  </section>
+
+  <!-- SCENE 3: the turn -->
+  <section class="scene turn" id="s3">
+    <p class="eyebrow">Who sends the mail?</p>
+    <h2>Who is mailing me (and can I stop them?)</h2>
+
+    <p class="lede">To get a breakdown of mail senders and whether it’s possible to opt out of receiving their mail, I looked at the latest U.S. Postal Service's Household Diary Study for fiscal 2024 and 25, which covers October 2023 through September 2024. To get a sense of how easy it is to stem the tide of unwanted mail, I identified three distinct opt-out categories:</p>
+
+    <ul class="sender-optout-list">
+      <li>Can stop</li>
+      <li>Can partly stop</li>
+      <li>Can’t stop</li>
+    </ul>
+
+    <p>Each year USPS asks a representative sample of households to log every piece of mail they receive, including who sent it and why. The average household reported about 410 pieces of advertising mail that year. I mapped 387 of them: this omits government notices, unsolicited magazines, and mail whose sender respondents couldn't identify. Each box is one type of sender, sized by how many pieces it sent a typical home, and counts include both bulk Marketing Mail and ads tucked into First-Class bills and statements.</p>
+
+    <p>Only about a fifth of household ad mail, 85 pieces a year, comes from senders you can reliably opt out of, mostly retailers and catalogs. Three-quarters (294 pieces) come from senders you can only partly escape. Banks, card issuers, and insurers lead all senders at 104 pieces, because one opt-out stops their prescreened offers. Charities, service companies, and coupon envelopes make up the rest, and each of these generally has to be stopped one sender at a time.</p>
+
+    <p>Mail in the “can’t stop” box is likely an undercount, as it includes only mail with no name or address line. Flyers addressed to “Resident” are probably counted under the industry that sent them. These mail pieces fall into the “partly stoppable” boxes.</p>
+
+    <figure class="jm" id="junk-mail-treemap">
+<div class="toggle" role="group" aria-label="Arrange the chart">
+    <button type="button" data-mode="flat" aria-pressed="true">By sender</button>
+    <button type="button" data-mode="grouped" aria-pressed="false">Can you stop it?</button>
+  </div>
+
+  <div class="map" id="jm-map" aria-label="Treemap of household advertising mail by sender"></div>
+  <div class="smallkey" id="jm-smallkey"></div>
+  <ul class="legend" id="jm-legend"></ul>
+
+  <div class="detail" id="jm-detail" aria-live="polite">
+    <p class="hint">Tap a box to see what that mail includes and how to stop it.</p>
+  </div>
+
+  <figcaption class="source">
+    <p>Source: USPS Household Diary Study, FY 2024 (Tables 5.1 and A-11), covering October 2023 through September 2024. Figures are advertising pieces received per household per year, First-Class and Marketing Mail combined; First-Class figures include ads enclosed with bills and statements. Government advertising (10.6 pieces), unsolicited periodicals (8.3), and mail whose sender respondents couldn't identify (3.9) are excluded.</p>
+    <p>Which group each sender falls in is our classification, not USPS's. The fiscal year ended before most 2024 election mail was sent, so political mail is lower than in a typical election year. Mail addressed to "Resident" is likely counted under its sender's industry, so the unaddressed box understates how much mail can't be stopped.</p>
+  </figcaption>
+</figure>
+  </section>
+
+  <!-- SCENE 4: real footprint race -->
+  <section class="scene race" id="s4">
+    <p class="eyebrow">The actual cost</p>
+    <h2>The real three-month footprint</h2>
+    <p class="lede">Staying within the same three-month window for an average household and average inbox, we can model the environmental impact of junk mail.</p>
+
+<p class="group-label">Carbon dioxide</p>
+    <div class="race-set">
+      <div class="race-item">
+        <div class="race-top">
+          <span class="race-name">Junk mail</span>
+          <span class="race-num tone-red" data-count="109" data-suffix=" kg">0 kg</span>
+        </div>
+        <div class="race-track"><div class="race-fill red" style="--target:100%"></div></div>
+      </div>
+      <div class="race-item">
+        <div class="race-top">
+          <span class="race-name">Spam</span>
+          <span class="race-num tone-green" data-count="0.14" data-decimals="2" data-suffix=" kg">0.00 kg</span>
+        </div>
+        <div class="race-track"><div class="race-fill green" style="--target:3%"></div></div>
+      </div>
+    </div>
+
+    <p class="group-label">Electricity</p>
+    <div class="race-set">
+      <div class="race-item">
+        <div class="race-top">
+          <span class="race-name">Junk mail</span>
+          <span class="race-num tone-red" data-count="62" data-suffix=" kWh">0 kWh</span>
+        </div>
+        <div class="race-track"><div class="race-fill red" style="--target:100%"></div></div>
+      </div>
+      <div class="race-item">
+        <div class="race-top">
+          <span class="race-name">Spam</span>
+          <span class="race-num tone-green" data-count="0.24" data-decimals="2" data-suffix=" kWh">0.00 kWh</span>
+        </div>
+        <div class="race-track"><div class="race-fill green" style="--target:3%"></div></div>
+      </div>
+    </div>
+
+    <div class="equiv">
+      <div class="equiv-row">Junk mail's 109 kg of CO2 ≈ <b>driving 270 miles</b> in an average gas car.</div>
+      <div class="equiv-row">Spam's 0.14 kg of CO2 ≈ <b>driving about a quarter mile.</b></div>
+    </div>
+
+    <div class="footprint-copy">
+      <p><strong>Emissions:</strong> Delivering three months of junk mail produces an estimated <strong>109 kg of CO₂</strong>—roughly equivalent to driving <strong>270 miles</strong>, about the distance from New York to Pittsburgh. The associated electricity use is about <strong>62 kWh</strong>.</p>
+
+      <p><strong>By comparison, spam barely registers:</strong> about <strong>0.14 kg of CO₂</strong> over the same period, much of it associated with the servers that process and filter those messages before you ever see them. That’s roughly equivalent to <strong>a quarter-mile of driving</strong>, with about <strong>0.24 kWh</strong> of electricity use.</p>
+
+      <p><strong>The surprising result:</strong> junk mail dominates the imaginary economy—and imposes a far greater cost on the real world than spam.</p>
+    </div>
+</section>
+
+  <section class="scene demographic-copy" id="demographic-copy">
+    <p class="eyebrow">Modeling the mailstream</p>
+    <h2>Modeling junk mail sent as a daily flow across the US:</h2>
+
+    <p class="lede"><strong>Junk mail is not an evenly distributed nuisance; it is allocated like a market.</strong> Advertisers concentrate physical mail where they perceive the greatest purchasing power, responsiveness, stability, and commercial value. Modeled as a daily flow to households across America, we can see how advertisers decide who to target and in what categories.</p>
+
+    <!-- MAILSTREAM DEMOGRAPHICS: income / age toggle -->
+    <section class="mailstream-shell" id="mailstream-demographics" aria-label="Advertising mail by household income and age">
+      <div class="mailstream-switch">
+        <div class="mailstream-switch-inner" role="group" aria-label="Choose household view">
+          <button type="button" id="show-income" aria-pressed="true">Household income</button>
+          <button type="button" id="show-age" aria-pressed="false">Age of householder</button>
+        </div>
+      </div>
+
+      <div class="mailstream-views">
+        <section class="mailstream-view is-active" id="income-view" aria-hidden="false">
+          <junk-mail-flow variant="income"></junk-mail-flow>
+        </section>
+        <section class="mailstream-view" id="age-view" aria-hidden="true">
+          <junk-mail-flow variant="age"></junk-mail-flow>
+        </section>
+      </div>
+    </section>
+
+    <h3>Higher Income households receive more mail</h3>
+    <p>Advertising-mail exposure rises steadily with household income:</p>
+
+    <p>If we index these households in terms of their share of the overall US population against the proportion of the mail they receive, we get a clearer picture of how each income and age group is represented in the distribution of the mail-stream.</p>
+
+    <ul>
+      <li>Under $50K households are 37% of households but receive only 27.5% of ad mail: <strong>26% underrepresented</strong>.</li>
+      <li>$50K–$99K households receive roughly their proportional share.</li>
+      <li>$100K–$149K households are <strong>21% overrepresented</strong>.</li>
+      <li>$150K+ households are 15% of households but receive 21.2% of ad mail: <strong>about 42% overrepresented</strong>.</li>
+    </ul>
+
+    <p>On a household basis, the highest-income group receives about <strong>527 pieces annually</strong>, versus <strong>277</strong> below $50K—nearly twice as much.</p>
+
+    <h3>Older Households also receive more mail</h3>
+    <p>The age divide is even sharper:</p>
+
+    <ul>
+      <li>Households headed by someone under 45 are 37% of households but receive only 22.7% of ad mail: <strong>39% underrepresented</strong>.</li>
+      <li>Ages 45–64 are close to proportional, at <strong>7% overrepresented</strong>.</li>
+      <li>Householders 65+ are 30% of households but receive 41.9% of ad mail: <strong>40% overrepresented</strong>.</li>
+    </ul>
+
+    <p>Older households receive about <strong>529 pieces annually</strong>, compared with <strong>233</strong> for households under 45—roughly 2.3 times as much.</p>
+
+    <h3>Why this is significant</h3>
+
+    <p>Read together, the data suggests that physical advertising is increasingly aimed at households that are older, wealthier, more likely to own homes, more settled at one address, and supported by longer consumer histories.</p>
+
+    <p>That matters for several reasons:</p>
+
+    <ul>
+      <li><strong>The mailbox reflects commercial valuation.</strong> Some households are considered substantially more valuable—and therefore more worth pursuing—than others.</li>
+      <li><strong>The physical and environmental burden is unequal.</strong> Older and wealthier households receive a disproportionate share of the paper, printing, transportation, sorting, and disposal burden.</li>
+      <li><strong>The age divide may reflect digital segmentation.</strong> Younger households are reached through digital advertising, while older households remain more heavily targeted through physical mail.</li>
+      <li><strong>The waste is strategically produced.</strong> Junk mail is not simply excess paper spreading randomly across America; it is the material residue of a targeting system.</li>
+      <li><strong>The two disparities likely overlap.</strong> Age, income, homeownership, address stability, and purchasing history are correlated. The charts do not prove that age or income independently causes the disparity.</li>
+    </ul>
+
+    <p class="demographic-conclusion"><strong>America’s junk mail burden follows the contours of perceived consumer value: the oldest and wealthiest households receive roughly twice as much as the youngest and lowest-income households.</strong></p>
+
+    <p class="demographic-caveat"><strong>An important caveat to note here is:</strong> the demographic totals are sourced, but the colored category composition inside each group remains illustrative. We cannot yet claim, for example, that older households receive disproportionately more financial or healthcare mail without category-by-demographic cross-tabs.</p>
+  </section>
+
+  <section class="scene closing" id="closing">
+    <h2>One envelope is easy to ignore. A hundred billion are harder to dismiss.</h2>
+
+    <p>Junk mail is usually treated as background noise: a catalog on the counter, a credit offer in the recycling bin, a flyer you never asked for. But taken together, those pieces reveal something larger—a system that decides who is worth targeting, moves enormous amounts of paper and energy to reach them, and leaves households to deal with the waste.</p>
+
+    <p>The imaginary GDP exercise was a joke. The machinery behind it isn’t.</p>
+
+    <p class="closing-line"><strong>And unlike GDP, this is one economy we can choose to shrink.</strong></p>
+  </section>
+
+<section class="scene optout-end" id="optout-end">
+    <p class="eyebrow">Take action</p>
+
+    <div class="laser-mailstorm-wrap">
+      <div class="laser-mailstorm stage" id="laserMailstormStage">
+        <canvas id="laserMailstormCanvas" aria-hidden="true"></canvas>
+      </div>
+    </div>
+
+<p class="cta-heading">Stop the junk mail</p>
+    <div class="links">
+      <a class="link-row" href="https://www.optoutprescreen.com" target="_blank" rel="noopener">
+        <span class="link-main">
+          <span class="link-name">OptOutPrescreen.com</span>
+          <span class="link-desc">Free. Blocks prescreened credit and insurance offers for 5 years, or permanently by mail.</span>
+        </span>
+        <span class="link-go">Open</span>
+      </a>
+      <a class="link-row" href="https://dmachoice.org" target="_blank" rel="noopener">
+        <span class="link-main">
+          <span class="link-name">DMAchoice.org</span>
+          <span class="link-desc">Small one-time fee. Opts you out of participating national direct marketers for 10 years.</span>
+        </span>
+        <span class="link-go">Open</span>
+      </a>
+      <a class="link-row" href="https://www.catalogchoice.org" target="_blank" rel="noopener">
+        <span class="link-main">
+          <span class="link-name">CatalogChoice.org</span>
+          <span class="link-desc">Free. Cancels individual catalogs one by one, from a large searchable database.</span>
+        </span>
+        <span class="link-go">Open</span>
+      </a>
+      <a class="link-row" href="https://www.paperkarma.com" target="_blank" rel="noopener">
+        <span class="link-main">
+          <span class="link-name">PaperKarma</span>
+          <span class="link-desc">Paid app. Photograph anything else and it requests removal on your behalf.</span>
+        </span>
+        <span class="link-go">Open</span>
+      </a>
+    </div>
+
+    <p class="cta-heading">Stop the spam</p>
+    <p class="spam-note">There's no single registry for email the way there is for postal mail. The reliable fixes are built into your inbox: use <b>Unsubscribe</b> on legitimate senders (required by the CAN-SPAM Act), and use <b>Report spam / Block</b> on the rest, which retrains your provider's filter. Gmail's own guide covers both: <a href="https://support.google.com/mail/answer/1366858" target="_blank" rel="noopener">support.google.com/mail/answer/1366858</a>.</p>
+
+  </section>
+
+</main>
+
+<footer>
+  Illustrative, back-of-envelope estimates, not precise accounting. GDP figures use ~$29.2T U.S. GDP and the classic "848 pieces of junk mail per U.S. household per year" figure (ForestEthics/Environmental Defense Fund, 2008) and ~1,825 spam emails per person per year (industry estimates, 2025). Climate figures use the same 2008 ForestEthics lifecycle study (paper, forestry, distribution, landfill) for junk mail, and the McAfee/ICF "Carbon Footprint of Spam" study (2009) for email. Both are older studies commonly cited as the standard reference points; current volumes are somewhat lower and modern data centers are more efficient, so real present-day numbers likely sit below these.
+</footer>
+
+</body>
+</html>
