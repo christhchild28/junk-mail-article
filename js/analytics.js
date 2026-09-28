@@ -48,9 +48,15 @@
   });
   once(document.getElementById('show-age'), 'click', function () { track('flow-age-view', 'Flow chart: age view'); });
 
+  // Shredder game
+  once(document.getElementById('sh-shredBtn'), 'click', function () { track('shredder-shred', 'Shredder: shredded the mail'); });
+  once(document.getElementById('sh-place'), 'change', function () { track('shredder-place', 'Shredder: picked a place'); });
+  once(document.getElementById('sh-tune'), 'toggle', function () { track('shredder-tune', 'Shredder: opened household tuning'); });
+
   // Reading depth
   whenSeen(document.getElementById('s3'), function () { track('reached-treemap', 'Reached the sender treemap'); });
   whenSeen(document.getElementById('mailstream-demographics'), function () { track('reached-flow-chart', 'Reached the flow chart'); });
+  whenSeen(document.getElementById('shredder'), function () { track('reached-shredder', 'Reached the shredder game'); });
   whenSeen(document.getElementById('optout-end'), function () { track('reached-optout', 'Reached the opt-out links'); });
 
   // Opt-out links: one event per destination

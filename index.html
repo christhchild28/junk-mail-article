@@ -28,6 +28,7 @@
 <script defer src="js/treemap.js"></script>
 <script defer src="js/mailstream.js"></script>
 <script defer src="js/laser.js"></script>
+<script defer src="js/shredder.js"></script>
 <script defer src="js/analytics.js"></script>
 </head>
 <body>
@@ -532,6 +533,132 @@
     <p>The imaginary GDP exercise was a joke. The machinery behind it isn’t.</p>
 
     <p class="closing-line"><strong>And unlike GDP, this is one economy we can choose to shrink.</strong></p>
+  </section>
+
+<!-- SHREDDER: closing mini-game (js/shredder.js) -->
+  <section class="scene shredder" id="shredder" aria-labelledby="sh-title">
+    <p class="eyebrow">One more round</p>
+    <h2 id="sh-title">Feed the shredder.</h2>
+    <p class="lede">Pick where your mailbox is and how long the junk piled up. Guess what it’s worth in imaginary GDP, then shred it and see what you threw away.</p>
+
+    <div class="sh-wide">
+      <div class="sh-app">
+        <div class="sh-stage-col">
+          <div class="sh-stage" id="sh-stage">
+            <canvas id="sh-c" aria-hidden="true"></canvas>
+            <div class="sh-hud">
+              <span class="num tone-red" id="sh-hudNum">$0</span>
+              <span class="figure-cap" id="sh-hudLab">imaginary GDP shredded</span>
+            </div>
+          </div>
+          <div class="sh-stage-cap figure-cap">
+            <span>In the hopper: <b id="sh-capPieces">212 pieces</b></span>
+            <span id="sh-capPer">each envelope ≈ 8 pieces</span>
+          </div>
+        </div>
+
+        <div class="sh-controls">
+          <div class="sh-q">
+            <label class="sh-label" for="sh-place">Where’s your mailbox?</label>
+            <div class="sh-select"><select id="sh-place"></select></div>
+            <details class="sh-tune" id="sh-tune">
+              <summary><span class="sh-t">Tune to your household</span><span class="sh-tag" id="sh-tuneTag">Typical for this place</span></summary>
+              <div class="sh-tune-body">
+                <div>
+                  <div class="sh-label" id="sh-incLab">Household income</div>
+                  <div class="sh-chips" id="sh-incChips" role="group" aria-labelledby="sh-incLab"></div>
+                </div>
+                <div>
+                  <div class="sh-label" id="sh-ageLab">Age of the person who heads the household</div>
+                  <div class="sh-chips" id="sh-ageChips" role="group" aria-labelledby="sh-ageLab"></div>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div class="sh-q">
+            <div class="sh-label" id="sh-monLab">How long did it pile up?</div>
+            <div class="sh-seg" id="sh-months" role="group" aria-labelledby="sh-monLab"></div>
+          </div>
+
+          <div class="sh-q">
+            <div class="sh-guess-row">
+              <label class="sh-label" for="sh-guess">Your guess: imaginary GDP</label>
+              <span class="race-num" id="sh-guessOut">$50K</span>
+            </div>
+            <input type="range" id="sh-guess" min="0" max="400000" step="1000" value="50000">
+            <div class="sh-range-ends"><span>$0</span><span>$400K</span></div>
+          </div>
+
+          <div class="sh-actions">
+            <button class="sh-btn" id="sh-shredBtn" type="button">Shred it</button>
+            <button class="sh-link" id="sh-resetBtn" type="button">Refill the hopper</button>
+          </div>
+
+          <div class="math-callout sh-verdict" id="sh-verdict" hidden aria-live="polite">
+            <p class="math-head">You shredded</p>
+            <span class="num tone-red" id="sh-vBig">$62K</span>
+            <p class="math-step" id="sh-vDelta"></p>
+            <p class="math-eq" id="sh-vLine"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sh-ledger">
+        <h3 id="sh-ledgerH">What the United States throws away in 3 months</h3>
+        <p id="sh-ledgerSub"></p>
+
+        <div class="sh-index">
+          <div class="sh-index-top">
+            <span class="sh-label">Junk-mail index</span>
+            <span class="race-num" id="sh-idxNum">1.00×</span>
+          </div>
+          <p class="sh-index-parts" id="sh-idxParts"></p>
+          <svg class="sh-strip" id="sh-strip" viewBox="0 0 600 64" role="img" aria-label="Where this place ranks"></svg>
+        </div>
+
+        <div class="sh-cols">
+          <div>
+            <div class="sh-col-h"><h4>Your household</h4><span id="sh-hhTag">typical here</span></div>
+            <dl class="sh-rows">
+              <dt>Pieces of junk mail</dt><dd id="sh-hPieces">212</dd>
+              <dt>Paper to the bin<small>at about 22 g a piece</small></dt><dd id="sh-hWeight">10 lb</dd>
+              <dt>CO₂ emitted<small>paper, printing, delivery, landfill</small></dt><dd id="sh-hCo2">109 kg</dd>
+              <dt>Electricity used</dt><dd id="sh-hKwh">62 kWh</dd>
+              <dt>Imaginary GDP</dt><dd id="sh-hGdp" class="sh-locked">Shred to reveal</dd>
+            </dl>
+          </div>
+          <div>
+            <div class="sh-col-h"><h4 id="sh-placeColH">Every U.S. household</h4><span id="sh-placeTag">127M households</span></div>
+            <dl class="sh-rows">
+              <dt>Pieces of junk mail</dt><dd id="sh-pPieces">27B</dd>
+              <dt>Paper to the bin<small>U.S. short tons</small></dt><dd id="sh-pWeight">650K tons</dd>
+              <dt>CO₂ emitted<small>metric tons</small></dt><dd id="sh-pCo2">14M t</dd>
+              <dt>Electricity used</dt><dd id="sh-pKwh">7.9 GWh</dd>
+              <dt>Imaginary GDP</dt><dd id="sh-pGdp" class="sh-locked">Shred to reveal</dd>
+            </dl>
+          </div>
+        </div>
+
+        <details class="sh-method">
+          <summary>How the model works</summary>
+          <div class="sh-method-body">
+            <p><b>Baseline.</b> An average U.S. household gets about 848 pieces of junk mail a year (ForestEthics / Environmental Defense Fund, 2008), or about 71 a month. The thought experiment above values a household’s three-month share at about $62,000 of imaginary GDP, so each piece carries roughly $292.</p>
+            <p><b>Who gets more mail.</b> The USPS Household Diary Study (FY2024, Tables 5.1 and A-11) shows how advertising mail skews by household. Each group’s index is its share of ad mail divided by its share of households:</p>
+            <div class="sh-tbl"><table>
+              <tr><th>Income</th><th>Index</th><th>Householder age</th><th>Index</th></tr>
+              <tr><td>Under $50K</td><td>0.74</td><td>Under 45</td><td>0.61</td></tr>
+              <tr><td>$50K–$99K</td><td>1.00</td><td>45–64</td><td>1.07</td></tr>
+              <tr><td>$100K–$149K</td><td>1.21</td><td>65 and over</td><td>1.40</td></tr>
+              <tr><td>$150K+</td><td>1.42</td><td></td><td></td></tr>
+            </table></div>
+            <p><b>Where you live.</b> For each state and city, the model takes the household income distribution and the share of residents 65 and over from the Census Bureau’s American Community Survey 2023 5-year estimates. The income index is the place’s bracket mix weighted by the indexes above, relative to the U.S. mix. The age index assumes the share of households headed by someone 65+ (29.9% nationally, implied by the Diary Study) rises and falls with the place’s share of older residents.</p>
+            <p><b>Putting them together.</b> Income and age overlap, since older households tend to have more wealth, so multiplying the two would count that overlap twice. The model takes their geometric mean. Place averages cluster close to 1.0 because every place mixes young and old, rich and poor. Your own household can land much further out, which is what “Tune to your household” is for.</p>
+            <p><b>Footprint.</b> CO₂ (109 kg) and electricity (62 kWh) per household per quarter come from the same ForestEthics lifecycle study used above. Weight uses the commonly cited 41 lb of junk mail a year. Cities are city limits, not metro areas. Every figure scales linearly with months and with the index, so treat them as estimates of scale, not measurements.</p>
+          </div>
+        </details>
+      </div>
+    </div>
   </section>
 
 <section class="scene optout-end" id="optout-end">

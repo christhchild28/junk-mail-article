@@ -29,6 +29,7 @@ js/hero.js            mailbox hero: mail storm and stacked stat cards
 js/treemap.js         USPS sender treemap ("Can you stop it?")
 js/mailstream.js      <junk-mail-flow variant="income|age"> ribbon chart and view toggle
 js/laser.js           opt-out section animation
+js/shredder.js        closing mini-game: shred N months of mail, waste by state/city
 js/analytics.js       GoatCounter reader events
 vendor/matter.min.js  Matter.js 0.19.0 (MIT) for pile physics
 ```
@@ -41,6 +42,7 @@ Every animation runs only while it's on screen. The piles stop once their envelo
 - USPS Household Mail Survey, FY 2025 (age breakdown)
 - ForestEthics / Environmental Defense Fund (2008), junk mail lifecycle
 - McAfee / ICF, "The Carbon Footprint of Email Spam" (2009)
+- U.S. Census Bureau, American Community Survey 2023 5-year estimates (households, income distribution, share 65+ by state and city)
 
 The page footer lists the figures used for the estimates.
 
