@@ -66,7 +66,16 @@
     sx.shadowBlur = SHADOW.blur * S;
     sx.shadowOffsetY = SHADOW.dy * S;
     sx.drawImage(c, P * S, P * S);
-    return { img:c, shadowImg:sc, w:w, h:h };
+
+    // Darker copy for the in-flight paper flicker (same tone step as the piles' two papers).
+    var dc = document.createElement('canvas');
+    dc.width = c.width; dc.height = c.height;
+    var dx = dc.getContext('2d');
+    dx.drawImage(c, 0, 0);
+    dx.globalCompositeOperation = 'source-atop';
+    dx.fillStyle = 'rgba(90,75,40,.11)';
+    dx.fillRect(0, 0, dc.width, dc.height);
+    return { img:c, dimImg:dc, shadowImg:sc, w:w, h:h };
   }
   function bodyShape(x, w, h, fill){
     rr(x, 2, 2, w - 4, h - 4, 7); x.fillStyle = fill; x.fill();
@@ -183,7 +192,7 @@
   }
 
   /* ---------- the pile (baked, so it costs nothing per frame) ---------- */
-  function drawSprite(ctx, k, x, y, s, rot, alpha, shadowed){
+  function drawSprite(ctx, k, x, y, s, rot, alpha, shadowed, dim){
     var sp = sprites[k];
     var w = baseW() * s * (sp.w / 300), h = w * sp.h / sp.w;
     ctx.save();
@@ -193,7 +202,7 @@
       var k2 = w / sp.w, pw = (sp.w + SHADOW.pad * 2) * k2, ph = (sp.h + SHADOW.pad * 2) * k2;
       ctx.drawImage(sp.shadowImg, -pw / 2, -ph / 2, pw, ph);
     } else {
-      ctx.drawImage(sp.img, -w / 2, -h / 2, w, h);
+      ctx.drawImage(dim ? sp.dimImg : sp.img, -w / 2, -h / 2, w, h);
     }
     ctx.restore();
   }
@@ -316,7 +325,9 @@
       var px = q.ox + (q.tx - q.ox) * e;
       var py = q.oy + (q.ty - q.oy) * e - q.lift * 4 * t * (1 - t) * 0.6;
       var s = 0.07 + (q.s1 - 0.07) * Math.pow(t, 2.1);
-      drawSprite(fctx, q.k, px, py, s, q.r0 + (q.r1 - q.r0) * t, Math.min(1, t / 0.08));
+      // paper flicker while in flight
+      drawSprite(fctx, q.k, px, py, s, q.r0 + (q.r1 - q.r0) * t, Math.min(1, t / 0.08), false,
+        Math.round(Math.abs(Math.sin(px * py))) % 2 === 1);
     }
 
     if(!filled && covered >= cells.length){

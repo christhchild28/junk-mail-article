@@ -17,6 +17,8 @@ Opening `index.html` straight from disk also works in most browsers. A local ser
 
 GitHub Pages: **Settings → Pages → Deploy from a branch → `main` / root**.
 
+Live at **https://christhchild28.github.io/junk-mail-article/**. Visits and reader events (mailbox opened, "Start reading", chart toggles, opt-out link clicks) are counted with [GoatCounter](https://www.goatcounter.com); see `js/analytics.js`.
+
 ## Structure
 
 ```
@@ -27,6 +29,7 @@ js/hero.js            mailbox hero: mail storm and stacked stat cards
 js/treemap.js         USPS sender treemap ("Can you stop it?")
 js/mailstream.js      <junk-mail-flow variant="income|age"> ribbon chart and view toggle
 js/laser.js           opt-out section animation
+js/analytics.js       GoatCounter reader events
 vendor/matter.min.js  Matter.js 0.19.0 (MIT) for pile physics
 ```
 

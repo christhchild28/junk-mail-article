@@ -70,7 +70,9 @@
     ctx.translate(p.x, p.y);
     ctx.rotate(p.angle);
 
-    ctx.fillStyle = p.shade;
+    // paper flicker while falling; a fixed shade once it lands
+    ctx.fillStyle = p.landed ? p.shade
+      : (Math.round(Math.abs(Math.sin(p.x * p.y))) % 2 ? palette.paper2 : palette.paper);
     ctx.strokeStyle = palette.stroke;
     ctx.lineWidth = 1;
     ctx.beginPath();

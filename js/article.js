@@ -74,6 +74,9 @@
     var accentRatio = (cfg.accentRatio != null) ? cfg.accentRatio : 0.14;
 
     function pickShade() { return bodyColors[Math.random() < 0.5 ? 0 : 1]; }
+    // Paper flicker while a plain envelope is falling: the shade is picked from its
+    // position every frame, so it strobes between the two paper tones until it lands.
+    function flickerShade(x, y) { return bodyColors[Math.round(Math.abs(Math.sin(x * y))) % 2]; }
     function pickAccentColor() {
       return (accentColor2 && Math.random() < 0.5) ? accentColor2 : accentColor;
     }
@@ -214,7 +217,9 @@
         var b = bodies[i];
         if (b.isStatic) continue;
         var m = b.plugin;
-        drawEnvelope(b.position.x, b.position.y, m.w, m.h, b.angle, m.shade, m.accent);
+        var falling = !b.isSleeping && b.speed > 0.5;
+        var shade = (falling && !m.accent) ? flickerShade(b.position.x, b.position.y) : m.shade;
+        drawEnvelope(b.position.x, b.position.y, m.w, m.h, b.angle, shade, m.accent);
       }
     }
 
@@ -457,7 +462,8 @@
             moving = true;
           }
           if (p.y < dims.height + 120) allGone = false;
-          drawEnvelope(p.x, p.y, p.w, p.h, p.a, p.shade, p.accent);
+          var inAir = crashing || p.y < p.restY;
+          drawEnvelope(p.x, p.y, p.w, p.h, p.a, (inAir && !p.accent) ? flickerShade(p.x, p.y) : p.shade, p.accent);
         });
         if (!crashing && !showerDone && elapsed >= duration) { showerDone = true; revealFigure(); }
         if (crashing && allGone) {
