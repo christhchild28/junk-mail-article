@@ -25,7 +25,6 @@
   var started = false, raf = null, cardShown = false, shownCount = 0, stormCapTimer = null;
   var revealY = cards.map(function(){ return 0; }), revealAt = cards.map(function(){ return 0; });
   var CARD_SETTLE_MS = 700;
-  var FINAL_CARD_READ_MS = 2400;
   var stuck = [], flying = [];
   var cols = 10, rows = 18, cells = new Uint8Array(180), covered = 0, filled = false;
   var sprites = null;
@@ -485,12 +484,13 @@
       b.addEventListener('click', function(){ showCardAt(i + 1, true); });
     } else {
       b.addEventListener('click', function(){
-        var elapsed = performance.now() - revealAt[i];
-        if(cards[i].classList.contains('show') && elapsed < FINAL_CARD_READ_MS){
-          // Keep the card in place for a short reading beat before allowing the article transition.
-          return;
-        }
-        after.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block:'start' });
+        // A click is a deliberate choice to move on, so act on every one.
+        // Scroll by layout position (offsetTop ignores the scene-reveal transform),
+        // so the intro lands flush at the top once its reveal settles.
+        var top = 0;
+        for(var el = after; el; el = el.offsetParent) top += el.offsetTop;
+        try { window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' }); }
+        catch(err){ window.scrollTo(0, top); }
         after.focus({ preventScroll:true });
       });
     }
